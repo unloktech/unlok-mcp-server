@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "unlok": {
+      "type": "http",
+      "url": "https://mcp.unlok.com/mcp"
+    }
+  }
+}

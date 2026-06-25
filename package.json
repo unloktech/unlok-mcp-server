@@ -1,0 +1,11 @@
+{
+  "name": "unlok-claude-plugin",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Public plugin contracts for Unlok Claude experiences",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build-plugin.mjs"
+  }
+}

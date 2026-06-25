@@ -1,0 +1,13 @@
+{
+  "name": "unlok",
+  "description": "Unlok investment copilot for portfolio intelligence, market thesis research, and execution-safe trade workflows.",
+  "author": {
+    "name": "Unlok"
+  },
+  "mcpServers": "./.mcp.json",
+  "skills":"./skills/",
+  "agents": [
+    "./agents/market-scanner.md",
+    "./agents/portfolio-guardian.md"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "version": "1.0.0",
+  "plugin": "unlok-plugin",
+  "mcpEndpoint": "https://mcp.unlok.com/mcp",
+  "operatingMode": "finance-master",
+  "globalStandards": {
+    "evidencePolicy": [
+      "No fabricated numbers or positions",
+      "All claims must map to a tool result",
+      "Separate fact from interpretation"
+    ],
+    "riskPolicy": [
+      "Prioritize downside and invalidation conditions",
+      "Explicitly call out concentration and liquidity risks",
+      "Never execute write actions without explicit confirmation"
+    ],
+    "responseQuality": [
+      "Always provide what changed, why it matters, and what to do next",
+      "Use ranking and confidence labels for multi-candidate outputs",
+      "End with concrete next actions"
+    ]
+  },
+  "skills": {
+    "portfolio-analysis": {
+      "displayName": "Portfolio Intelligence",
+      "path": "skills/portfolio-analysis/SKILL.md",
+      "analysisFramework": [
+        "Exposure Map: symbol, sector, theme concentration",
+        "Risk Ladder: idiosyncratic, sector, market, event risk",
+        "Performance Attribution: top contributors and detractors",
+        "Action Queue: rebalance, hedge, monitor"
+      ],
+      "userIntent": [
+        "What do I own and where is my risk concentrated?",
+        "How did my account perform and what drove it?",
+        "Where am I overexposed by symbol or sector?"
+      ],
+      "defaultOutput": "Account snapshot, exposure map, concentration flags, and prioritized risk actions.",
+      "outputContract": [
+        "Portfolio snapshot",
+        "Top 3 concentration risks",
+        "Attribution highlights",
+        "Top 3 recommended actions"
+      ],
+      "primaryTools": [
+        "get_holdings",
+        "get_portfolio_summary",
+        "get_portfolio_allocation",
+        "get_portfolio_heatmap",
+        "get_account_overview"
+      ]
+    },
+    "market-research": {
+      "displayName": "Market Thesis Lab",
+      "path": "skills/market-research/SKILL.md",
+      "analysisFramework": [
+        "Market Context: regime and breadth",
+        "Setup Quality: trend, momentum, volatility",
+        "Catalyst Map: earnings, macro, news flow",
+        "Scenario Grid: base, upside, downside"
+      ],
+      "userIntent": [
+        "Give me a thesis on a symbol or sector",
+        "Compare candidates and identify the better setup",
+        "Summarize what is moving markets today"
+      ],
+      "defaultOutput": "Evidence-based research brief with drivers, counterpoints, and watch levels.",
+      "outputContract": [
+        "Current setup assessment",
+        "Key drivers and counterpoints",
+        "Levels to watch and invalidation",
+        "Decision-ready next step"
+      ],
+      "primaryTools": [
+        "analyze_market",
+        "show_chart",
+        "show_market_overview",
+        "compare_assets",
+        "get_market_news"
+      ]
+    },
+    "order-guidance": {
+      "displayName": "Execution Guard",
+      "path": "skills/order-guidance/SKILL.md",
+      "analysisFramework": [
+        "Rule Check: tradability, session, TIF",
+        "Cost Check: spread and fee-aware preview",
+        "Execution Check: order type and slippage risk",
+        "Approval Gate: explicit user confirmation"
+      ],
+      "userIntent": [
+        "Can I trade this right now and under what rules?",
+        "What would this order cost and how should I structure it?",
+        "Execute only after I explicitly approve"
+      ],
+      "defaultOutput": "Pre-trade checklist, fee-aware preview, and confirmation-gated execution plan.",
+      "outputContract": [
+        "Trade intent summary",
+        "Rule and tradability status",
+        "Preview with estimated cost",
+        "Final confirmation request"
+      ],
+      "primaryTools": [
+        "get_order_rules",
+        "check_tradability",
+        "preview_order",
+        "place_order",
+        "modify_order",
+        "cancel_order",
+        "close_position"
+      ]
+    }
+  },
+  "commands": {
+    "portfolio": {
+      "trigger": "/portfolio",
+      "path": "commands/portfolio.md",
+      "outcome": "Portfolio risk and action dashboard"
+    },
+    "watchlist": {
+      "trigger": "/watchlist",
+      "path": "commands/watchlist.md",
+      "outcome": "Watchlist intelligence and candidate tracking"
+    },
+    "trade": {
+      "trigger": "/trade",
+      "path": "commands/trade.md",
+      "outcome": "Confirmation-gated execution workflow"
+    },
+    "deep-dive": {
+      "trigger": "/deep-dive",
+      "path": "commands/deep-dive.md",
+      "outcome": "Decision-grade thesis memo"
+    }
+  },
+  "workflows": {
+    "market-scanner": {
+      "path": "workflows/market-scanner.md",
+      "scoringModel": {
+        "trend": 0.3,
+        "momentum": 0.25,
+        "catalyst": 0.25,
+        "risk": 0.2
+      },
+      "output": "Ranked candidates with confidence and invalidation"
+    }
+  }
+}

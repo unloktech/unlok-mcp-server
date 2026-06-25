@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "unlok",
+  "description": "Unlok plugin marketplace metadata",
+  "owner": {
+    "name": "Unlok",
+    "email": "support@unlok.com"
+  },
+  "plugins": [
+    {
+      "name": "unlok",
+      "description": "Unlok investment copilot for portfolio intelligence, market thesis research, and execution-safe trade workflows.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Unlok",
+        "email": "support@unlok.com"
+      },
+      "source": "./",
+      "category": "finance",
+      "homepage": "https://mcp.unlok.com"
+    }
+  ]
+}
